@@ -43,6 +43,7 @@ export class Player {
   }
   addNewPart() {
     this.parts.push(new Part(this));
+    this.game.score++;
   }
 }
 

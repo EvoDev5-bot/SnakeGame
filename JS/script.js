@@ -1,5 +1,5 @@
 import { Game } from "./game.js";
-import { gameOver } from "./gameOver.js";
+import { gameOver } from "./utils.js";
 
 window.addEventListener("load", () => {
   const game = new Game();

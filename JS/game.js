@@ -1,6 +1,7 @@
 import { Grid } from "./grid.js";
 import { Input } from "./input.js";
 import { Player } from "./player.js";
+import { displayScore } from "./utils.js";
 
 export class Game {
   constructor() {
@@ -12,9 +13,11 @@ export class Game {
     this.player = new Player(this);
     this.grid = new Grid(this);
     this.gameOver = false;
+    this.score = 0;
   }
   update(timestamp) {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
     const deltatime = timestamp - this.lastTime;
     this.lastTime = timestamp;
 
@@ -24,5 +27,7 @@ export class Game {
     [this.player, this.grid].forEach((obj) => {
       obj.draw(this.ctx);
     });
+
+    displayScore(this);
   }
 }
